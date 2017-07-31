@@ -1,0 +1,18 @@
+{
+  "name": "make-bundle",
+  "version": "1.0.0",
+  "description": "Bundle the aws-sdk",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diego Zanon",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.6.15",
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "uglifyify": "^3.0.4"
+  }
+}

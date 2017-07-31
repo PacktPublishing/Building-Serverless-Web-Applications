@@ -1,0 +1,20 @@
+service: iam-temporary-credentials
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - 'sts:AssumeRole'
+      Resource: "*"
+
+functions:
+  auth:
+    handler: handler.auth
+    events:
+      - http: GET iot/keys
+    memorySize: 128
+    timeout: 10

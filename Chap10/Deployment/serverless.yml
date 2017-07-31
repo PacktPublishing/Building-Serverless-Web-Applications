@@ -1,0 +1,18 @@
+service: warm
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'lambda:InvokeFunction'
+      Resource: "*"
+
+functions:
+  hello:
+    handler: handler.hello
+    warmup: true
+
+plugins:
+  - serverless-plugin-warmup

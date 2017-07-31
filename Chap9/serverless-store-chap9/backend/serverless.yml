@@ -1,0 +1,44 @@
+service: serverless-store
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+  memorySize: 128
+  timeout: 30   
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "iot:Publish"
+      Resource: 
+        "arn:aws:iot:${self:provider.region}:125362663122:topic/serverless-store-*"
+
+functions:
+  products:
+    handler: functions/products.handler
+    events:
+      - http:
+          method: GET
+          path: products
+      - http: OPTIONS products
+      - http:
+          method: PUT
+          path: cart
+          authorizer: 
+            arn: arn:aws:cognito-idp:us-east-1:125362663122:userpool/us-east-1_wHw1xeEmw
+      - http: OPTIONS cart
+      - http:
+          method: POST
+          path: checkout
+          #authorizer: 
+          # arn: arn:aws:cognito-idp:us-east-1:1234567890:userpool/us-east-1_aBcdeFghi
+          authorizer: 
+            arn: arn:aws:cognito-idp:us-east-1:125362663122:userpool/us-east-1_wHw1xeEmw
+      - http: OPTIONS checkout
+  comments:
+    handler: functions/comments.handler
+    events:
+      - iot:
+          sql: "SELECT * FROM 'serverless-store-comments'"
+          

@@ -1,0 +1,11 @@
+{
+  "name": "using-external-modules",
+  "version": "1.0.0",
+  "description": "An example of how to use the AWS Lambda with external modules.",
+  "main": "handler.js",
+  "author": "Diego Zanon",
+  "license": "MIT",
+  "dependencies": {
+    "cat-names": "^1.0.2"
+  }
+}

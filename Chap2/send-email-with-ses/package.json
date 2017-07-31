@@ -1,0 +1,11 @@
+{
+  "name": "send-email-with-ses",
+  "version": "1.0.0",
+  "description": "An example of how to use the AWS SDK with SES.",
+  "main": "index.js",
+  "author": "Diego Zanon",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.48.0"
+  }
+}

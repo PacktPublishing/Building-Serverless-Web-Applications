@@ -1,0 +1,11 @@
+service: graphql-example
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  store:
+    handler: handler.store
+    events:
+      - http: POST query

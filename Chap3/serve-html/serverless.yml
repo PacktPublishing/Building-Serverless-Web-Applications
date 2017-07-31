@@ -1,0 +1,13 @@
+service: serve-html
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  memorySize: 128
+      
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http: GET page
+       

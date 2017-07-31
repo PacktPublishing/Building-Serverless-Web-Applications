@@ -1,0 +1,8 @@
+{
+  "name": "using-multiple-services1",
+  "version": "1.0.0",
+  "description": "An example of how to use multiple Serverless services.",
+  "main": "handler.js",
+  "author": "Diego Zanon",
+  "license": "MIT"
+}

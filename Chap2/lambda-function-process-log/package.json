@@ -1,0 +1,11 @@
+{
+  "name": "lambda-function-process-log",
+  "version": "1.0.0",
+  "description": "A log processor to execute as a Lambda function.",
+  "main": "index.js",
+  "author": "Diego Zanon",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.48.0"
+  }
+}
