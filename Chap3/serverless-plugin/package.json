@@ -1,0 +1,11 @@
+{
+  "name": "hello-typescript",
+  "version": "1.0.0",
+  "description": "An example of how to use plugins with the Serverless Framework.",
+  "main": "handler.js",
+  "author": "Diego Zanon",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-plugin-typescript": "^0.1.4"
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "Records": [
+        {
+            "s3": {
+                "bucket": {
+                    "name": "my-bucket-name"
+                },
+                "object": {
+                    "key": "logs/log1.txt"
+                }
+            }
+        }
+    ]
+}

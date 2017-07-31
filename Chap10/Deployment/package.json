@@ -1,0 +1,11 @@
+{
+  "name": "warmup",
+  "version": "1.0.0",
+  "description": "An example of how to use the WarmUP plugin.",
+  "main": "handler.js",
+  "author": "Diego Zanon",
+  "license": "MIT",
+  "devDependencies": {
+    "serverless-plugin-warmup": "^3.0.5-rc.1"
+  }
+}

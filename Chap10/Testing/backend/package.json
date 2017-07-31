@@ -1,0 +1,14 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha"
+  },
+  "description": "An example of how to test Lambda functions.",
+  "author": "Diego Zanon",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.6"
+  }
+}

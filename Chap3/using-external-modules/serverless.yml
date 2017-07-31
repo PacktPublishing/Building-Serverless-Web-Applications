@@ -1,0 +1,18 @@
+service: cat-names
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  catNames:
+    handler: handler.catNames
+    memorySize: 128
+
+package:
+  exclude:
+    - package.json
+    - event.json
+    - tests
+    - LICENSE
+    - README.md

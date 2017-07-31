@@ -1,0 +1,19 @@
+.product-image {
+  width: 250px;
+}
+
+.product-box {
+  display: inline-block;
+  margin: 10px;
+}
+
+.spin {
+  font-size: 30px;
+  margin-top: 10px;
+  animation: spin-frames 1s infinite linear;
+}
+
+@keyframes spin-frames {
+  from { transform: scale(1) rotate(0deg); }
+  to { transform: scale(1) rotate(360deg); }
+}

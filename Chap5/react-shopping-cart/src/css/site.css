@@ -1,0 +1,17 @@
+.product-image {
+  width: 250px;
+}
+
+.product-box {
+  display: inline-block;
+  margin: 10px;
+}
+
+.x-mark {
+  float: right;
+  cursor: pointer;
+}
+
+.btn-danger:focus {
+  outline-color: #761c19;
+}

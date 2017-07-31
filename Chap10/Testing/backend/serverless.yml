@@ -1,0 +1,15 @@
+service: testing
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  hello:
+    handler: functions/greetings.hello
+  order:
+    handler: functions/orders.saveOrder
+
+package:
+  exclude:
+    - test/**

@@ -1,0 +1,20 @@
+service: serverless-store
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+  memorySize: 128
+  timeout: 30   
+
+functions:
+  products:
+    handler: functions/products.handler
+    events:
+      - http: GET products
+      - http: PUT cart
+      - http: OPTIONS cart      
+      - http: POST checkout
+      - http: OPTIONS checkout
+          

@@ -1,0 +1,14 @@
+{
+  "name": "cognito-unauthenticated",
+  "version": "1.0.0",
+  "description": "Cognito Unauthenticated",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Diego Zanon",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.6.15"
+  }
+}
