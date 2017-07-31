@@ -1,0 +1,10 @@
+{
+  "name": "simpledb",
+  "version": "1.0.0",
+  "description": "Examples of how to use SimpleDB.",
+  "author": "Diego Zanon",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.85.0"
+  }
+}

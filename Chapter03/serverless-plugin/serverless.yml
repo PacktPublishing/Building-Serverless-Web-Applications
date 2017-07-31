@@ -1,0 +1,13 @@
+service: hello-typescript
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  hello:
+    handler: handler.hello
+    memorySize: 128
+
+plugins:
+  - serverless-plugin-typescript

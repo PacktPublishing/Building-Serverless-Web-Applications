@@ -1,0 +1,20 @@
+service: simpledb-example
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "sdb:batchPutAttributes"      
+        - "sdb:PutAttributes"
+        - "sdb:Select"
+      Resource: [
+        "arn:aws:sdb:us-east-1:*:domain/Products",
+        "arn:aws:sdb:us-east-1:*:domain/ShopingCart"
+      ]
+
+functions:
+  query:
+    handler: handler.query
+  

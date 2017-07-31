@@ -1,0 +1,30 @@
+service: serverless-events
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  memorySize: 128
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - 's3:GetObject'
+      Resource: "arn:aws:s3:::my-bucket-name/*" # use a new bucket name
+    - Effect: "Allow"
+      Action:
+        - 'sns:Publish'
+      Resource: "arn:aws:sns:us-east-1:1234567890:email-alerts" # use you account number and SNS topic
+      
+functions:
+  processLog:
+    handler: handler.processLog
+    events:
+      - s3:
+          bucket: my-bucket-name # use a new bucket name
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: logs/
+            - suffix: .txt
+  processTask:
+    handler: handler.processTask
+    events:
+      - schedule: rate(15 minutes)          

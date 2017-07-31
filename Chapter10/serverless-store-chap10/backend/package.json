@@ -1,0 +1,7 @@
+{
+  "name": "serverless-store",
+  "version": "1.0.0",
+  "description": "Backend implementation of the Serverless Store.",
+  "author": "Diego Zanon",
+  "license": "MIT"
+}
