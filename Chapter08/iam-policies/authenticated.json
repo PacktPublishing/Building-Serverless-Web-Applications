@@ -1,0 +1,47 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "mobileanalytics:PutEvents",
+                "cognito-sync:*",
+                "cognito-identity:*"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iot:Connect",
+                "iot:AttachPrincipalPolicy"
+            ],
+            "Resource": [
+                "*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iot:Publish",
+                "iot:Receive"
+            ],
+            "Resource": [
+                "arn:aws:iot:<region>:<account>:topic/serverless-store-comments",
+                "arn:aws:iot:<region>:<account>:topic/serverless-store-${cognito-identity.amazonaws.com:sub}"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "iot:Subscribe"
+            ],
+            "Resource": [
+                "arn:aws:iot:<region>:<account>:topicfilter/serverless-store-comments",
+                "arn:aws:iot:<region>:<account>:topicfilter/serverless-store-${cognito-identity.amazonaws.com:sub}"
+            ]
+        }
+    ]
+}

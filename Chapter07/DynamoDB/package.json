@@ -1,0 +1,10 @@
+{
+  "name": "dynamodb",
+  "version": "1.0.0",
+  "description": "Examples of how to use DynamoDB.",
+  "author": "Diego Zanon",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.85.0"
+  }
+}

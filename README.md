@@ -18,13 +18,14 @@ All of the code is organized into folders. Each folder starts with a number foll
 The code will look like the following:
 ```
 class HelloReact extends React.Component {
-render() {
-return <div>Hello, {this.props.name}!</div>;
+  render() {
+    return <div>Hello, {this.props.name}!</div>;
+  }
 }
-}
+
 ReactDOM.render(
-<HelloReact name="World" />,
-document.getElementById('root')
+  <HelloReact name="World" />,
+  document.getElementById('root')
 );
 ```
 

@@ -1,0 +1,72 @@
+service: serverless-store
+
+custom:
+  awsAccountId: 1234567890  
+  cognitoAuthorizer: arn:aws:cognito-idp:us-east-1:${self:custom.awsAccountId}:userpool/us-east-1_aBcdeFghi
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-east-1
+  memorySize: 128
+  timeout: 30
+  environment:
+    IOT_ENDPOINT: abcdefghijklm.iot.us-east-1.amazonaws.com
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "sdb:BatchPutAttributes"
+        - "sdb:PutAttributes"
+        - "sdb:Select"
+      Resource: [
+        "arn:aws:sdb:us-east-1:*:domain/Products",
+        "arn:aws:sdb:us-east-1:*:domain/ShoppingCart"
+      ]
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:Scan"
+        - "dynamodb:Query"
+        - "dynamodb:PutItem"
+        - "dynamodb:DeleteItem"
+        - "dynamodb:BatchWriteItem"
+      Resource: [
+        "arn:aws:dynamodb:us-east-1:*:table/Products",
+        "arn:aws:dynamodb:us-east-1:*:table/ShoppingCart"
+      ]
+    - Effect: "Allow"
+      Action:
+        - "iot:Publish"
+      Resource: 
+        "arn:aws:iot:${self:provider.region}:${self:custom.awsAccountId}:topic/serverless-store-*"
+
+functions:
+  products:
+    handler: functions/products.handler
+    events:
+      - http: GET products
+      - http:
+          method: GET
+          path: productsAuth
+          authorizer: 
+            arn: ${self:custom.cognitoAuthorizer}          
+      - http: OPTIONS productsAuth
+      - http:
+          method: POST
+          path: cart
+          authorizer: 
+            arn: ${self:custom.cognitoAuthorizer}
+      - http: OPTIONS cart
+      - http:
+          method: PUT
+          path: checkout  
+          authorizer: 
+            arn: ${self:custom.cognitoAuthorizer}
+      - http: OPTIONS checkout
+      
+  comments:
+    handler: functions/comments.handler
+    events:
+      - iot:
+          sql: "SELECT * FROM 'serverless-store-comments'"
+          
